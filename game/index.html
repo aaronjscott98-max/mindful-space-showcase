@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Space - Student Life</title>
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+  <header>
+    <nav>
+        <a href="../" class="logo">Mindful Space</a>
+        <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../service/">Services</a></li>
+            <li><a href="../game/">Game</a></li>
+            <li><a href="../about/">About Us</a></li>
+        </ul>
+        
+        <form action="../contact/" method="get">
+            <button type="submit" class="nav-cta">Get Support Now!</button>
+        </form>
+    </nav>
+</header>
+<body>
+    <div id="ui">Level: <span id="lvl">1</span> | Progress: <span id="coll">0</span>/<span id="req">5</span></div>
+    <div id="game-container">
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+        
+        <div id="startScreen" class="screen" style="display:flex;">
+            <h1 class="game-title">Student Life</h1>
+            <button class="main-btn" onclick="startGame()">Press to Start</button>
+            <button class="secondary-btn" onclick="showScreen('controlScreen')">Controls</button>
+        </div>
+
+        <div id="controlScreen" class="screen">
+            <h2 class="game-controls">How to Play</h2>
+            <p class="game-controls">Move: Left/Right arrows (desktop) & sides of screen (mobile)</p>
+            <p class="game-controls">Jump: Spacebar (desktop) centre screen (mobile) </p>
+            <button class="secondary-btn" onclick="showScreen('startScreen')">Back</button>
+        </div>
+
+        <div id="pauseScreen" class="screen">
+            <h2 class="game-controls">Game Paused</h2>
+            <button class="main-btn" onclick="gameState = 'GAME'">Resume</button>
+            <button class="secondary-btn" onclick="gameState = 'START'; showScreen('startScreen');">Quit to Home</button>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+  <div class="footer-container">
+    
+    <div class="footer-brand">
+      <span class="footer-logo">Mindful Space</span>
+      <p class="footer-tagline">Supporting student mental health and daily wellbeing.</p>
+    </div>
+
+    <ul class="footer-nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="service/">Services</a></li>
+      <li><a href="game/">Game</a></li>
+      <li><a href="about/">About Us</a></li>
+    </ul>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Mindful Space</p>
+      <div class="footer-legal">
+        <a href="#">Accessibility Statement</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+    <script src="../js/game.js"></script>
+</body>
+</html>
