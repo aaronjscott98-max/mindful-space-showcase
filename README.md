@@ -8,3 +8,6 @@ Now officially titled Mindful Space a name that feels appropriate for this type 
 
 Week 1, Landing page - HTML, CSS 
 For the first week I have focused on the main layout of the landing page and added the content that would likely be seen on this type of website, every button is interactable but leads to no where for the time being, I plan to work on the services next then come back to the home page and sort out the sub menu for the services
+
+Week 2, About, and Game, js, HTML, CSS
+For the second week, I started with the About page and then decided to work on the game itself. I began by creating the page for the game, then moved on to the JavaScript, getting the core gameplay sorted before adding assets such as a character, thought bubbles, the tiles, and the city backgrounds. There are three levels to the game, and upon completion, the game displays a quote to help with mental health. There is still work to be done, such as the links at the end of the game, but these will be addressed in week 4, when I will be refining a lot of the CSS and ensuring everything works before I seek feedback and implement changes.
