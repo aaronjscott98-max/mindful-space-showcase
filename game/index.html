@@ -1,81 +1,100 @@
 <!DOCTYPE html>
+
 <html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindful Space - Student Life</title>
-    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
-    <link rel="shortcut icon" href="../images/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
-    <link rel="manifest" href="../images/site.webmanifest" />
-    <link rel="stylesheet" href="../css/styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#5b966e" name="theme-color"/>
+<meta content="Play Student Life, a gentle three-level platform game by Mindful Space. Works with keyboard and on-screen touch controls." name="description"/>
+<title>Student Life Game | Mindful Space</title>
+<link href="../images/favicon-96x96.png" rel="icon" type="image/png"/>
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../images/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="../images/site.webmanifest" rel="manifest"/>
+<link href="../css/styles.css" rel="stylesheet"/>
 </head>
-  <header>
-    <nav>
-        <a href="../" class="logo">Mindful Space</a>
-        <ul>
-            <li><a href="../">Home</a></li>
-            <li><a href="../service/">Services</a></li>
-            <li><a href="../game/">Game</a></li>
-            <li><a href="../about/">About Us</a></li>
-        </ul>
-        
-        <form action="../contact/" method="get">
-            <button type="submit" class="nav-cta">Get Support Now!</button>
-        </form>
-    </nav>
-</header>
 <body>
-    <div id="ui">Level: <span id="lvl">1</span> | Progress: <span id="coll">0</span>/<span id="req">5</span></div>
-    <div id="game-container">
-        <canvas id="gameCanvas" width="800" height="400"></canvas>
-        
-        <div id="startScreen" class="screen" style="display:flex;">
-            <h1 class="game-title">Student Life</h1>
-            <button class="main-btn" onclick="startGame()">Press to Start</button>
-            <button class="secondary-btn" onclick="showScreen('controlScreen')">Controls</button>
-        </div>
-
-        <div id="controlScreen" class="screen">
-            <h2 class="game-controls">How to Play</h2>
-            <p class="game-controls">Move: Left/Right arrows (desktop) & sides of screen (mobile)</p>
-            <p class="game-controls">Jump: Spacebar (desktop) centre screen (mobile) </p>
-            <button class="secondary-btn" onclick="showScreen('startScreen')">Back</button>
-        </div>
-
-        <div id="pauseScreen" class="screen">
-            <h2 class="game-controls">Game Paused</h2>
-            <button class="main-btn" onclick="gameState = 'GAME'">Resume</button>
-            <button class="secondary-btn" onclick="gameState = 'START'; showScreen('startScreen');">Quit to Home</button>
-        </div>
-    </div>
-
-    <footer class="site-footer">
-  <div class="footer-container">
-    
-    <div class="footer-brand">
-      <span class="footer-logo">Mindful Space</span>
-      <p class="footer-tagline">Supporting student mental health and daily wellbeing.</p>
-    </div>
-
-    <ul class="footer-nav">
-      <li><a href="/">Home</a></li>
-      <li><a href="service/">Services</a></li>
-      <li><a href="game/">Game</a></li>
-      <li><a href="about/">About Us</a></li>
-    </ul>
-
-    <div class="footer-bottom">
-      <p>&copy; 2026 Mindful Space</p>
-      <div class="footer-legal">
-        <a href="#">Accessibility Statement</a>
-        <a href="#">Privacy Policy</a>
-      </div>
-    </div>
-
-  </div>
-</footer>
-    <script src="../js/game.js"></script>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><nav aria-label="Primary navigation">
+<a class="logo" href="../">Mindful Space</a>
+<button aria-controls="primaryNav" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" id="menuToggle" type="button"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+<ul id="primaryNav">
+<li><a href="../">Home</a></li>
+<li class="has-dropdown"><button aria-controls="servicesNav" aria-expanded="false" class="dropdown-toggle" type="button">Services <span aria-hidden="true" class="dropdown-chevron"></span></button>
+<ul class="dropdown" id="servicesNav">
+<li><a href="../understanding-anxiety/">Understanding Anxiety</a></li>
+<li><a href="../understanding-depression/">Understanding Depression</a></li>
+</ul>
+</li>
+<li><a aria-current="page" href="../game/">Game</a></li>
+<li><a href="../about/">About Us</a></li>
+</ul>
+<a class="nav-cta" href="../support/">Get Support</a>
+</nav></header>
+<main class="game-page" id="main">
+<div class="game-intro">
+<h1>Student Life</h1>
+<p>Take on a tougher platform challenge. Jump across randomly generated gaps and narrow ledges, and hunt for fewer, more widely spaced thought bubbles.</p>
+</div>
+<section aria-label="Student Life platform game" class="game-shell">
+<div class="game-topbar">
+<div aria-label="Game progress" id="ui">Level <span id="lvl">1</span> of 3 <span aria-hidden="true">·</span> Thoughts <span id="coll">0</span>/<span id="req">5</span> <span aria-hidden="true">·</span> <span class="game-difficulty" id="difficultyName">Challenging</span></div>
+<button class="game-pause-btn" hidden="" id="pauseGame" type="button">Pause <span aria-hidden="true">Ⅱ</span></button>
+</div>
+<div id="game-container">
+<canvas tabindex="-1" aria-label="Side-scrolling platform game. Use the arrow keys or touch buttons to move and jump. Game instructions are available on the start screen." height="400" id="gameCanvas" role="img" width="800">Your browser needs canvas support for this game.</canvas>
+<div aria-hidden="true" class="game-message" id="gameMessage"></div>
+<div class="game-screen" hidden="" id="startScreen">
+<h2>Ready to play?</h2>
+<p>Expect longer jumps, narrow ledges and fewer thought bubbles. Platform widths, gaps and heights change on every run. Can you finish all three levels?</p>
+<button class="main-btn" id="startGame" type="button">Start game</button>
+<button class="secondary-btn" id="showControls" type="button">How to play</button>
+</div>
+<div class="game-screen" hidden="" id="controlScreen">
+<h2>How to play</h2>
+<p><strong>Desktop:</strong> ← → or A / D to move; Space, ↑ or W to jump; Esc to pause.</p>
+<p><strong>Phone or tablet:</strong> hold ◀ or ▶ to move; tap Jump to jump; use Pause to take a break.</p>
+<p>Encouraging thought bubbles are scarce: search several platforms between pickups and jump to reach higher ones. Some rare bonus bubbles appear on raised platforms. Flags mark checkpoints every five main platforms. Avoid challenging thoughts: they cost one point. Jumps get much harder in later levels. Falling returns you to your last checkpoint and costs one thought, if you have any.</p>
+<button class="secondary-btn" id="backToStart" type="button">Back</button>
+</div>
+<div class="game-screen" hidden="" id="pauseScreen">
+<h2>Paused</h2>
+<p>Take your time. Your progress is here when you return.</p>
+<button class="main-btn" id="resumeGame" type="button">Resume</button>
+<button class="secondary-btn" id="quitGame" type="button">Quit to menu</button>
+</div>
+<div class="game-screen" hidden="" id="levelCompleteScreen">
+<h2>Nice work!</h2>
+<p>Level complete. Platforms and routes change each time you play.</p>
+<button class="main-btn" id="nextLevel" type="button">Next level</button>
+</div>
+<div class="game-screen" hidden="" id="winScreen">
+<h2>You did it!</h2>
+<p>All three levels completed. Here is a thought for your journey:</p>
+<p class="game-quote" id="winQuote" aria-live="polite"></p>
+<button class="main-btn" id="playAgain" type="button">Play again</button>
+<button class="secondary-btn" id="winHome" type="button">Game menu</button>
+</div>
+</div>
+<div aria-label="Touch game controls" id="touch-controls">
+<div class="movement-controls">
+<button aria-label="Move left" class="touch-control" data-control="left" type="button">◀ <span>Left</span></button>
+<button aria-label="Move right" class="touch-control" data-control="right" type="button">▶ <span>Right</span></button>
+</div>
+<button aria-label="Jump" class="touch-control jump-control" data-control="jump" type="button">↑ <span>Jump</span></button>
+</div>
+<p class="game-keyboard-help">Keyboard: ← / → to move, Space to jump, Esc to pause.</p>
+<p class="game-rotate-hint">Tip: rotate your phone to landscape for a larger playing area.</p>
+<p aria-atomic="true" aria-live="polite" class="sr-only" id="gameStatus"></p>
+</section>
+<p class="game-disclaimer">This game is for reflection and entertainment; it is not a substitute for professional mental health support. <a href="../support/">Find support</a>.</p>
+</main>
+<footer class="site-footer"><div class="footer-container">
+<div class="footer-brand"><a class="footer-logo" href="../">Mindful Space</a><p class="footer-tagline">Supporting student mental health and daily wellbeing.</p></div>
+<ul class="footer-nav"><li><a href="../">Home</a></li><li><a href="../understanding-anxiety/">Understanding Anxiety</a></li><li><a href="../understanding-depression/">Understanding Depression</a></li><li><a href="../game/">Game</a></li><li><a href="../about/">About Us</a></li><li><a href="../support/">Support</a></li></ul>
+<div class="footer-bottom"><p>© 2026 Mindful Space</p><div class="footer-legal"><a href="../accessibility/">Accessibility</a><a href="../privacy/">Privacy</a></div></div>
+</div></footer>
+<script defer="" src="../js/script.js"></script>
+<script defer="" src="../js/game.js"></script>
 </body>
 </html>

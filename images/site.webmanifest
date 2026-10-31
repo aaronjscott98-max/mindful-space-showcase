@@ -1,21 +1,24 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Mindful Space",
+  "short_name": "Mindful Space",
+  "description": "Student wellbeing resources and the Student Life game",
   "icons": [
     {
-      "src": "/web-app-manifest-192x192.png",
+      "src": "web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
-      "src": "/web-app-manifest-512x512.png",
+      "src": "web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "start_url": "../",
+  "scope": "../",
+  "theme_color": "#5b966e",
+  "background_color": "#fdfbf7",
   "display": "standalone"
 }
